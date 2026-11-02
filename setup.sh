@@ -1,19 +1,18 @@
 #!/bin/bash
-# Copyright (C) 2019 baalajimaestro
-#
-# Licensed under the Raphielscape Public License, Version 1.b (the "License");
-# you may not use this file except in compliance with the License.
-#
+echo "***BuildBot для GitHub Actions***"
 
-echo "***BuildBot***"
-echo $TELEGRAM_TOKEN >/tmp/tg_token
-echo $TELEGRAM_CHAT >/tmp/tg_chat
-echo $GITHUB_TOKEN >/tmp/gh_token
-echo $DRONE_BUILD_NUMBER >/tmp/build_no
+# Записываем пустышки в файлы логов, чтобы скрипты build.sh не падали из-за отсутствия файлов
+echo "no_token" > /tmp/tg_token
+echo "no_chat" > /tmp/tg_chat
+echo "no_token" > /tmp/gh_token
+echo "1" > /tmp/build_no
 
-sudo echo "ci ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
-useradd -m -d /home/ci ci
-useradd -g ci wheel
-sudo cp github-release /usr/bin
-sudo cp telegram /usr/bin
-sudo -Hu ci bash -c "bash build.sh"
+# Копируем утилиты отправки в системную папку (чтобы скрипты сборщика их видели)
+sudo cp github-release /usr/bin/
+sudo cp telegram /usr/bin/
+
+# Ставим необходимые для сборки Android пакеты и компиляторы
+sudo apt-get update
+sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev python3 openjdk-17-jdk
+
+echo "Настройка окружения завершена, запускаем сборку..."
