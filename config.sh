@@ -1,19 +1,23 @@
 #!/bin/bash
 
-GITHUB_USER=Akianonymus
-GITHUB_EMAIL=anonymus.aki@gmail.com
+# Укажите ВАШ ник на GitHub и ВАШУ почту
+GITHUB_USER=ВАШ_НИК_НА_GITHUB
+GITHUB_EMAIL=ВАША_ПОЧТА@gmail.com
 
-KBUILD_BUILD_USER="Aki"
-KBUILD_BUILD_HOST="A_DEAD_PLANET"
+KBUILD_BUILD_USER="InfinityBuilder"
+KBUILD_BUILD_HOST="CloudServer"
 
-export oem=motorola
-export device=harpia
+# Укажите производителя и кодовое имя ВАШЕГО телефона
+# (Например, для Poco X3 Pro: oem=xiaomi, device=vayu)
+export oem=xiaomi
+export device=serebity
 
-ROM="PixelExperience"
-manifest_url="https://github.com/PixelExperience/manifest"
-export rom_vendor_name="aosp" # This represent the nams used by different rom vendors, Ex - aosp_harpia-userdebug, aosp is vendor name.
-branch="pie"
+ROM="InfinityX"
+manifest_url="https://github.com/projectinfinity-X/manifest"
+export rom_vendor_name="infinity" 
+branch="17" # Укажите ветку (14 для Android 14, 15 для Android 15 в зависимости от репозитория InfinityX)
 
-release_repo="Akianonymus/harpia_builds"
+# Создайте у себя на GitHub пустой репозиторий (например, с именем infinity_builds)
+release_repo="hel1oworl-d/infinity_builds"
 
-timezone="Asia/Kolkata"
+timezone="Europe/Moscow"
