@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Укажите ВАШ ник на GitHub и ВАШУ почту
-GITHUB_USER=ВАШ_НИК_НА_GITHUB
-GITHUB_EMAIL=ВАША_ПОЧТА@gmail.com
+GITHUB_USER=hel1oworl-d
+GITHUB_EMAIL=romkastupnikov98@gmail.com
 
 KBUILD_BUILD_USER="InfinityBuilder"
 KBUILD_BUILD_HOST="CloudServer"
